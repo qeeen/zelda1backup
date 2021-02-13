@@ -1,0 +1,1 @@
+slef.do_draw();//draw_sprite(slef.img, slef.frm, x, y);

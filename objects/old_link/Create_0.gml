@@ -1,0 +1,12 @@
+attacking = false;
+posx = x - x%t_sizeh;
+posy = y - y%t_sizeh;
+spd = 2.5;
+offset = 0;
+dir = 0;
+atk_x = 0;
+atk_y = 0;
+axis = 1;
+axis_prev = axis;
+stun_timer = 0;
+atk_dur = 20;

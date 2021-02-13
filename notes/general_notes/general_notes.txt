@@ -1,0 +1,18 @@
+
+for mapping use a "pipe" system, everything starts closed, designate "biomes" for different sections of squares
+biomes like deserts will be mostly 4 way, while forests will be more closed off, like creating a snaking "pipe"
+run dijkstras to see if every square can be reached
+
+dungeons find pieces of train tickets? use a train to travel to the next area
+
+genshin style unit switching? with each unit having maybe 3 item slots? 
+free changing outside, and out of combat, change once at the start of each room in dungeons
+maybe just some forced switching system? almost like ammo, but you simply rotate when you run out of energy
+certain items in shops, others in specific drop tables
+
+2 links?
+
+shrine leveling system, where you use a shrine to level up, and you pick an ability based on circumstances?
+
+class tree? pick a class, each level up gives an option out of a set abilities to pick from? maybe need certain reqs like in fallout?
+
