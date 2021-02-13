@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "dungeon",
+    "path": "folders/Objects/dungeon.yy",
   },
   "resourceVersion": "1.0",
   "name": "black_square",

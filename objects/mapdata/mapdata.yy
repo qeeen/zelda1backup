@@ -25,8 +25,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "masters",
+    "path": "folders/Objects/masters.yy",
   },
   "resourceVersion": "1.0",
   "name": "mapdata",

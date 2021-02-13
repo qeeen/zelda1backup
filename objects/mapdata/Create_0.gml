@@ -271,12 +271,16 @@ function load_map(){
 						with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", struct_enem)){slef = new speen(id, x, y); slef.init_pos = [other.mapx, other.mapy, i, k];}
 						cleared = false;
 						break;
+					case "sk":
+						with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", struct_enem)){slef = new skelly(id, x, y); slef.init_pos = [other.mapx, other.mapy, i, k];}
+						cleared = false;
+						break;
 					case "r":
 						with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", struct_enem)){slef = new rope(id, x, y); slef.init_pos = [other.mapx, other.mapy, i, k];}
 						cleared = false;
 						break;
 					case "cb":
-						with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", struct_enem)){slef = new boss(id, x, y); slef.init_pos = [other.mapx, other.mapy, i, k];}
+						with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", struct_enem)){slef = new necromancer_boss(id, x, y); slef.init_pos = [other.mapx, other.mapy, i, k];}
 						cleared = false;
 						break;
 				}

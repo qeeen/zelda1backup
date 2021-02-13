@@ -31,8 +31,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "wrappers",
+    "path": "folders/Objects/wrappers.yy",
   },
   "resourceVersion": "1.0",
   "name": "link",

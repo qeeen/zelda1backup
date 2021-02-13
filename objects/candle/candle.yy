@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "attacks",
+    "path": "folders/Objects/attacks.yy",
   },
   "resourceVersion": "1.0",
   "name": "candle",

@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "ow",
+    "path": "folders/Objects/ow.yy",
   },
   "resourceVersion": "1.0",
   "name": "cracked_wall",

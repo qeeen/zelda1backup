@@ -25,8 +25,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "other",
+    "path": "folders/Objects/other.yy",
   },
   "resourceVersion": "1.0",
   "name": "shop_item",
