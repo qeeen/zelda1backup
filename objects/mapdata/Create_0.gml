@@ -49,6 +49,9 @@ function load_map_file(filename){
 		map_data = wrapper[? "root"];
 		is_dungeon = wrapper[? "is_dungeon"];
 		bg_sprite = asset_get_index(wrapper[? "bg_sprite"])
+		if(is_dungeon){
+			bg_sprite = dung;
+		}
 		layer_background_sprite(layer_background_get_id("Background"), bg_sprite);
 		
 		for(var rm = 0; rm < mapw*maph; rm++){
@@ -67,6 +70,7 @@ function load_map_file(filename){
 		show_message("no file with this name, or you didn't put the file in the working folder idiot");
 		show_message(filename);
 	}
+	
 }
 
 load_map_file("debug_ow.rm");
@@ -280,6 +284,10 @@ function load_map(){
 						cleared = false;
 						break;
 					case "cb":
+						with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", struct_enem)){slef = new boss(id, x, y); slef.init_pos = [other.mapx, other.mapy, i, k];}
+						cleared = false;
+						break;
+					case "nb":
 						with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", struct_enem)){slef = new necromancer_boss(id, x, y); slef.init_pos = [other.mapx, other.mapy, i, k];}
 						cleared = false;
 						break;
@@ -379,6 +387,10 @@ function jump_load_ext(dest_x, dest_y, dest_file, is_local){
 	else if(from_where == "ow" && instance_exists(entrance)){
 		link.x = entrance.x;
 		link.y = entrance.y - 16;
+	}
+	else if(is_dungeon){
+		link.x = 64;
+		link.y = 240-64;
 	}
 }
 

@@ -33,10 +33,10 @@ function speen(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 			p_dir = calc_direction(target_x, target_y);
 			
 			switch(p_dir){
-				/*case 0:
+				case 0:
 					last_req = ["idle", -1];
 					request(last_req[0], last_req[1], 1, 0);
-					break;*/
+					break;
 				case 1:
 					last_req = ["moving", [mv_spd, 0]];
 					request(last_req[0], last_req[1], 1, 0);

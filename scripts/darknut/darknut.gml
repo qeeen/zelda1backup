@@ -1,9 +1,9 @@
 function darknut(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 	patrol_timer = 0;
 	last_req = ["idle", -1];
-	mv_spd = 0.3;
+	mv_spd = 0.4;
 	atk_dur = 15;
-	max_health = 12;
+	max_health = 6;
 	c_health = max_health;
 	
 	//sprites
@@ -11,6 +11,7 @@ function darknut(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 	sprite_l = spr_darknut_l;
 	sprite_f = spr_darknut_f;
 	sprite_b = spr_darknut_b;
+	ob.image_speed = 0.3;
 	
 	function input(){
 		var p_dir = 0;
@@ -75,7 +76,7 @@ function darknut(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 					break;
 			}
 		
-			patrol_timer = 16/mv_spd;//irandom_range(35, 75);
+			patrol_timer = 32/mv_spd;//irandom_range(35, 75);
 		}
 		else{
 			request(last_req[0], last_req[1], 1, 0);

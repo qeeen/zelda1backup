@@ -9,6 +9,7 @@ function trap(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 	anchor_y = ob.y;
 	seen = false;
 	backtrack = false;
+	on_hit_dmg = 2;
 	
 	//sprites
 	sprite_r = spr_trap;

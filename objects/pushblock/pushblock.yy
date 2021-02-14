@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_block",
-    "path": "sprites/spr_block/spr_block.yy",
+    "name": "spr_pushblock",
+    "path": "sprites/spr_pushblock/spr_pushblock.yy",
   },
   "solid": false,
   "visible": true,

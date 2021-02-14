@@ -1,6 +1,7 @@
 pushtimer = 0;
 pushed = false;
 spd = 0;
+laddered = false;
 
 function push(dir){
 	if(pushed)

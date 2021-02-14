@@ -14,6 +14,7 @@ function boss(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 	swooce_timer = 0;
 	swooce_dir = 3;
 	last_hp = c_health;
+	on_hit_dmg = 1;
 	
 	//sprites
 	sprite_r = spr_crab_boss_r;
@@ -128,7 +129,7 @@ function boss(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 				var knock_xspd = -3;
 				var knock_yspd = 0;
 				var knock_spd = 5;
-				link.slef.request("hit", [knock_xspd*knock_spd, knock_yspd*knock_spd, 10, 2], 0, 1);
+				link.slef.request("hit", [knock_xspd*knock_spd, knock_yspd*knock_spd, 10, slef.on_hit_dmg], 0, 1);
 				other.rush_timer = 40;
 			}
 		}

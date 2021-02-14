@@ -3,7 +3,7 @@ function enem(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 	last_req = ["idle", -1];
 	mv_spd = 0.5;
 	vision_range = 64;
-	max_health = 4;
+	max_health = 2;
 	c_health = max_health;
 	on_hit_dmg = 1;
 	

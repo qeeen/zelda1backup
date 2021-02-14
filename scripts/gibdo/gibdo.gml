@@ -3,7 +3,7 @@ function gibdo(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 	last_req = ["idle", -1];
 	mv_spd = 0.3;
 	atk_dur = 15;
-	max_health = 20;
+	max_health = 10;
 	c_health = max_health;
 	
 	//sprites

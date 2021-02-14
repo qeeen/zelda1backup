@@ -166,7 +166,7 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 			frm = 0;
 		}
 		
-		if(ent_state == "moving" && keys > 0){
+		if(ent_state == "moving"){
 			var the_door = noone;
 			with(ob){
 				switch(slef.dir){
@@ -217,7 +217,7 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 				}
 			}
 			if(the_door != noone){
-				if(the_door.object_index == dung_door){
+				if(the_door.object_index == dung_door && keys > 0){
 					if(the_door.locked && !the_door.bombable){
 						mapdata.remember_lock(the_door);
 						the_door.locked = false;
@@ -284,6 +284,8 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 				return;
 			case "tome":
 				mapdata.tome_found();
+				max_health += 2;
+				c_health = max_health;
 				return;
 			case "golden_lilypad":
 				ladder_charge = 1;

@@ -3,7 +3,7 @@ function archer(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 	last_req = ["idle", -1];
 	mv_spd = 0.5;
 	atk_dur = 15;
-	max_health = 8;
+	max_health = 4;
 	c_health = max_health;
 	
 	//sprites
