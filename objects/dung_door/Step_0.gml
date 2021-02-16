@@ -38,3 +38,5 @@ lefty.y = y + sin(degtorad(image_angle))*-(image_angle != 90 ? pos:5);
 
 righty.image_angle = image_angle;
 lefty.image_angle = image_angle;
+
+img_color = mapdata.get_color();

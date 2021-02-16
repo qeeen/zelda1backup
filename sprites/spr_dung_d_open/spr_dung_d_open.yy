@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"525f43f0-bc6d-4b2c-bfbb-4a4f2511648e","path":"sprites/spr_dung_d_open/spr_dung_d_open.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"525f43f0-bc6d-4b2c-bfbb-4a4f2511648e","path":"sprites/spr_dung_d_open/spr_dung_d_open.yy",},"LayerId":{"name":"7c69bb30-aacc-4026-ac87-3e320a16b2a8","path":"sprites/spr_dung_d_open/spr_dung_d_open.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_dung_d_open","path":"sprites/spr_dung_d_open/spr_dung_d_open.yy",},"resourceVersion":"1.0","name":"525f43f0-bc6d-4b2c-bfbb-4a4f2511648e","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"6d49a94f-98b0-4846-973c-9327f4ae6c0a","path":"sprites/spr_dung_d_open/spr_dung_d_open.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"6d49a94f-98b0-4846-973c-9327f4ae6c0a","path":"sprites/spr_dung_d_open/spr_dung_d_open.yy",},"LayerId":{"name":"f3192eb8-0209-444b-af9b-4815448f9df0","path":"sprites/spr_dung_d_open/spr_dung_d_open.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_dung_d_open","path":"sprites/spr_dung_d_open/spr_dung_d_open.yy",},"resourceVersion":"1.0","name":"6d49a94f-98b0-4846-973c-9327f4ae6c0a","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_dung_d_open","path":"sprites/spr_dung_d_open/spr_dung_d_open.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"88d8e441-d902-46ed-8779-066697715bb9","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"525f43f0-bc6d-4b2c-bfbb-4a4f2511648e","path":"sprites/spr_dung_d_open/spr_dung_d_open.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"18f9266b-0135-474e-925c-bbb8d59275d6","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6d49a94f-98b0-4846-973c-9327f4ae6c0a","path":"sprites/spr_dung_d_open/spr_dung_d_open.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"7c69bb30-aacc-4026-ac87-3e320a16b2a8","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"f3192eb8-0209-444b-af9b-4815448f9df0","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "dungeon_walls",

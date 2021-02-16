@@ -16,6 +16,7 @@ current_map_file = "";
 cleared = true;
 
 bg_sprite = grass;
+bg_text = "";
 is_dungeon = false;
 unlocked_doors = ds_list_create()
 collected_items = ds_list_create();
@@ -40,6 +41,17 @@ for(k = 0; k < 16*16; k++){
 	}
 }
 
+function get_color(){
+	switch(bg_text){
+		case "green":
+			return make_color_rgb(32, 181, 98);
+		case "purple":
+			return make_color_rgb(177, 102, 240);
+		default:
+			return c_white;
+	}
+}
+
 function load_map_file(filename){
 	if(file_exists(filename)){
 		current_map_file = filename;
@@ -49,10 +61,12 @@ function load_map_file(filename){
 		map_data = wrapper[? "root"];
 		is_dungeon = wrapper[? "is_dungeon"];
 		bg_sprite = asset_get_index(wrapper[? "bg_sprite"])
+		bg_text = wrapper[? "bg_sprite"];
 		if(is_dungeon){
 			bg_sprite = dung;
 		}
 		layer_background_sprite(layer_background_get_id("Background"), bg_sprite);
+		layer_background_blend(layer_background_get_id("Background"), mapdata.get_color());
 		
 		for(var rm = 0; rm < mapw*maph; rm++){
 			var current_dat = map_data[| rm];
@@ -165,7 +179,7 @@ function load_map(){
 			switch(map[mapx + mapy*mapw][i + k*screenw]){//tile switch
 				case "w":
 					var wll = instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", wall);
-					if(is_dungeon){wll.sprite_index = spr_block}
+					if(is_dungeon){wll.sprite_index = spr_block; wll.img_color = get_color();}
 					break;
 				case "r":
 					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", wall)){sprite_index = spr_rock}
@@ -211,7 +225,7 @@ function load_map(){
 					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", wall)){sprite_index = spr_tree}
 					break;
 				case "p":
-					instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", pushblock);
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", pushblock)){img_color = mapdata.get_color();};
 					cleared = false;
 					break;
 					
@@ -396,41 +410,41 @@ function jump_load_ext(dest_x, dest_y, dest_file, is_local){
 
 function set_dungeon_walls(){
 	//corners
-	with(instance_create_layer(16+0, 16+0, "world_tiles", dung_wall)){sprite_index = spr_dung_corner; image_angle = 0}
-	with(instance_create_layer(16+256-32, 16+0, "world_tiles", dung_wall)){sprite_index = spr_dung_corner; image_angle = 270}
-	with(instance_create_layer(16+256-32, 16+240-32, "world_tiles", dung_wall)){sprite_index = spr_dung_corner; image_angle = 180}
-	with(instance_create_layer(16+0, 16+240-32, "world_tiles", dung_wall)){sprite_index = spr_dung_corner; image_angle = 90}
+	with(instance_create_layer(16+0, 16+0, "world_tiles", dung_wall)){sprite_index = spr_dung_corner; image_angle = 0; img_color = mapdata.get_color();}
+	with(instance_create_layer(16+256-32, 16+0, "world_tiles", dung_wall)){sprite_index = spr_dung_corner; image_angle = 270; img_color = mapdata.get_color();}
+	with(instance_create_layer(16+256-32, 16+240-32, "world_tiles", dung_wall)){sprite_index = spr_dung_corner; image_angle = 180; img_color = mapdata.get_color();}
+	with(instance_create_layer(16+0, 16+240-32, "world_tiles", dung_wall)){sprite_index = spr_dung_corner; image_angle = 90; img_color = mapdata.get_color();}
 		
 	//top row
 	for(var i = 0; i < 5; i++){
-		instance_create_layer(8+32 + 16*i, 16+0, "world_tiles", dung_wall);
+		with(instance_create_layer(8+32 + 16*i, 16+0, "world_tiles", dung_wall)){img_color = mapdata.get_color();}
 	}
 	for(var i = 0; i < 5; i++){
-		instance_create_layer(16*7 + 8+32 + 16*i, 16+0, "world_tiles", dung_wall);
+		with(instance_create_layer(16*7 + 8+32 + 16*i, 16+0, "world_tiles", dung_wall)){img_color = mapdata.get_color();};
 	}
 		
 	//bottom row
 	for(var i = 0; i < 5; i++){
-		with(instance_create_layer(8+32 + 16*i, 240-16, "world_tiles", dung_wall)){image_angle = 180};
+		with(instance_create_layer(8+32 + 16*i, 240-16, "world_tiles", dung_wall)){image_angle = 180;img_color = mapdata.get_color();};
 	}
 	for(var i = 0; i < 5; i++){
-		with(instance_create_layer(16*7 + 8+32 + 16*i, 240-16, "world_tiles", dung_wall)){image_angle = 180};
+		with(instance_create_layer(16*7 + 8+32 + 16*i, 240-16, "world_tiles", dung_wall)){image_angle = 180;img_color = mapdata.get_color();};
 	}
 		
 	//left column
 	for(var i = 0; i < 5; i++){
-		with(instance_create_layer(16, 8+32 + 16*i, "world_tiles", dung_wall)){image_angle = 90};
+		with(instance_create_layer(16, 8+32 + 16*i, "world_tiles", dung_wall)){image_angle = 90;img_color = mapdata.get_color();};
 	}
 	for(var i = 0; i < 4; i++){
-		with(instance_create_layer(16, 16*7 + 8+32 + 16*i, "world_tiles", dung_wall)){image_angle = 90};
+		with(instance_create_layer(16, 16*7 + 8+32 + 16*i, "world_tiles", dung_wall)){image_angle = 90;img_color = mapdata.get_color();};
 	}
 		
 	//right column
 	for(var i = 0; i < 5; i++){
-		with(instance_create_layer(256-16, 8+32 + 16*i, "world_tiles", dung_wall)){image_angle = 270};
+		with(instance_create_layer(256-16, 8+32 + 16*i, "world_tiles", dung_wall)){image_angle = 270;img_color = mapdata.get_color();};
 	}
 	for(var i = 0; i < 4; i++){
-		with(instance_create_layer(256-16, 16*7 + 8+32 + 16*i, "world_tiles", dung_wall)){image_angle = 270};
+		with(instance_create_layer(256-16, 16*7 + 8+32 + 16*i, "world_tiles", dung_wall)){image_angle = 270;img_color = mapdata.get_color();};
 	}
 	
 	//door stuff

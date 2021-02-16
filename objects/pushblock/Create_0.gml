@@ -2,6 +2,7 @@ pushtimer = 0;
 pushed = false;
 spd = 0;
 laddered = false;
+img_color = c_white;
 
 function push(dir){
 	if(pushed)

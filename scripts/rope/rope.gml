@@ -46,9 +46,11 @@ function rope(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 			patrol_timer = 0;
 		}
 		
+		/*
 		if(((link.x <= ob.x + 8 && link.x >= ob.x - 8) || (link.y <= ob.y + 8 && link.y >= ob.y - 8)) && !approaching){
 			patrol_timer = 0;
 		}
+		*/
 		
 		if(patrol_timer <= 0){
 			p_dir = irandom_range(1, 4);

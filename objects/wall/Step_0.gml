@@ -1,34 +1,26 @@
-if(sprite_index == spr_wall || sprite_index == spr_water){
+if(sprite_index == spr_wall){
 	if(x - 8 <= 0 || x + 8 >= 256 || y - 8 <= 0 || y + 8 >= 240){
 		return;
 	}
 	
 	if((!place_meeting(x+1, y, wall) && !place_meeting(x, y+1, wall)) && (!place_meeting(x+1, y, entrance) && !place_meeting(x, y+1, entrance))){
-		if(sprite_index == spr_water)
-			sprite_index = spr_water_diag_r;
-		else
-			sprite_index = spr_wall_diag_r;
+		sprite_index = spr_wall_diag_r;
 	}
 	if((!place_meeting(x-1, y, wall) && !place_meeting(x, y+1, wall)) && (!place_meeting(x-1, y, entrance) && !place_meeting(x, y+1, entrance))){
-		if(sprite_index == spr_water)
-			sprite_index = spr_water_diag_l;
-		else
-			sprite_index = spr_wall_diag_l;
+		sprite_index = spr_wall_diag_l;
 	}
 	if((!place_meeting(x+1, y, wall) && !place_meeting(x, y-1, wall)) && (!place_meeting(x+1, y, entrance) && !place_meeting(x, y-1, entrance))){
 		image_yscale = -1;
-		if(sprite_index == spr_water)
-			sprite_index = spr_water_diag_r;
-		else
-			sprite_index = spr_wall_diag_r;
+		sprite_index = spr_wall_diag_r;
 	}
 	if((!place_meeting(x-1, y, wall) && !place_meeting(x, y-1, wall)) && (!place_meeting(x-1, y, entrance) && !place_meeting(x, y-1, entrance))){
 		image_yscale = -1;
-		if(sprite_index == spr_water)
-			sprite_index = spr_water_diag_l;
-		else
-			sprite_index = spr_wall_diag_l;
+		sprite_index = spr_wall_diag_l;
 	}
+}
+
+if(sprite_index == spr_dung_corner || sprite_index == spr_dung_wall || sprite_index == spr_dung_wall_double || sprite_index = spr_block){
+	img_color = mapdata.get_color();
 }
 
 if(laddered){

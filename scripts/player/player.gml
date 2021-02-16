@@ -32,6 +32,7 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 	function input(){
 		if(keyboard_check_pressed(ord("H"))){//debug button
 			no_clip = !no_clip
+			show_message(mapdata.bg_sprite);
 		}
 		
 		var k_u = keyboard_check(ord("W")) || keyboard_check(vk_up);
