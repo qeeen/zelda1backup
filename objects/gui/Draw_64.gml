@@ -154,6 +154,63 @@ for(var i = 0; i < ds_list_size(link.slef.inventory); i++){
 	}
 }
 
+//map
+ybse += 7*80 + 8*10 + 40;
+draw_set_font(f_NES);
+draw_set_color(c_white);
+draw_set_halign(fa_center);
+draw_text(xbse+(4*80 + 5*10)/2, ybse, "-MAP-");
+
+ybse += 40;
+var scale = 23;
+draw_set_color(c_black);
+draw_rectangle(xbse, ybse, xbse + scale*16, ybse + scale*16, 0);
+for(var i = 0; i < mapdata.mapw*mapdata.maph; i++){
+	if(mapdata.ui_map[i] == 1){
+		draw_set_color(c_dkgrey);
+		if(mapdata.mapx + mapdata.mapy*mapdata.mapw == i){
+			draw_set_color(c_yellow);
+		}
+		var xpos = xbse+(scale*(i%16));
+		var ypos = ybse+(scale*floor(i/16))
+		draw_rectangle(xpos, ypos, xpos+scale, ypos+scale, 0);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

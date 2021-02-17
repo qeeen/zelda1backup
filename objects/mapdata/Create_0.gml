@@ -1,5 +1,6 @@
 map[0][0] = 0;
 enemies[0][0] = 0;
+ui_map[0] = 0;
 
 mapx = 0;
 mapy = 0;
@@ -52,6 +53,28 @@ function get_color(){
 	}
 }
 
+function generate_ui_map(){
+	for(var i = 0; i < mapw*mapw; i++){
+		var c_room = map_data[| i];
+		var c_tiles = c_room[? "tiles"];
+		var c_enem = c_room[? "enemies"];
+		var empty = true;
+		for(var k = 0; k < ds_list_size(c_tiles); k++){
+			if(c_tiles[| k] != "" || c_enem[| k] != ""){
+				empty = false;
+				break;
+			}
+		}
+	
+		if(!empty){
+			ui_map[i] = 1;
+		}
+		else{
+			ui_map[i] = 0;
+		}
+	}
+}
+
 function load_map_file(filename){
 	if(file_exists(filename)){
 		current_map_file = filename;
@@ -78,7 +101,7 @@ function load_map_file(filename){
 				enemies[rm][tile] = current_enemies[| tile];
 			}
 		}
-		
+		generate_ui_map();
 	}
 	else{
 		show_message("no file with this name, or you didn't put the file in the working folder idiot");

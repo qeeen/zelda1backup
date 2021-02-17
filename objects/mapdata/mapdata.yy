@@ -4,7 +4,7 @@
     "path": "sprites/spr_map_icon/spr_map_icon.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
