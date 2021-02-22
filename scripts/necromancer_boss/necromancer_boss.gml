@@ -5,7 +5,7 @@ function necromancer_boss(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 	atk_dur = 15;
 	max_health = 30;
 	c_health = max_health;
-	atk_timer = 64/mv_spd;
+	atk_timer = 32/mv_spd;
 	casting = false;
 	resurrecting = false;
 	shot_times = [0, 0];

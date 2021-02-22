@@ -258,8 +258,14 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 	
 		switch(item){
 			case "map":
+				with(mapdata){
+					ds_list_add(collected_maps, current_map_file);
+				}
 				return;
 			case "compass":
+				with(mapdata){
+					ds_list_add(collected_compasses, current_map_file);
+				}
 				return;
 			case "key":
 				keys++;

@@ -166,14 +166,32 @@ var scale = 23;
 draw_set_color(c_black);
 draw_rectangle(xbse, ybse, xbse + scale*16, ybse + scale*16, 0);
 for(var i = 0; i < mapdata.mapw*mapdata.maph; i++){
-	if(mapdata.ui_map[i] == 1){
+	if(mapdata.ui_map[i] >= 1){
 		draw_set_color(c_dkgrey);
 		if(mapdata.mapx + mapdata.mapy*mapdata.mapw == i){
-			draw_set_color(c_yellow);
+			draw_set_color(make_color_rgb(135, 22, 70));
 		}
+
 		var xpos = xbse+(scale*(i%16));
-		var ypos = ybse+(scale*floor(i/16))
-		draw_rectangle(xpos, ypos, xpos+scale, ypos+scale, 0);
+		var ypos = ybse+(scale*floor(i/16));
+		
+		if(mapdata.is_map_found() || !mapdata.is_dungeon){
+			draw_rectangle(xpos, ypos, xpos+scale, ypos+scale, 0);
+		}
+		
+		if(mapdata.is_compass_found() || !mapdata.is_dungeon){
+			switch(mapdata.ui_map[i]){
+				case 2:
+					draw_sprite_ext(spr_ui_chest, 0, xpos + scale/2, ypos + scale/2, scale/16, scale/16, 0, c_white, 1);
+					break;
+				case 3:
+					draw_sprite_ext(spr_skull, 0, xpos + scale/2, ypos + scale/2, scale/16, scale/16, 0, c_white, 1);
+					break;
+				case 4:
+					draw_sprite_ext(spr_ui_gate, 0, xpos + scale/2, ypos + scale/2, scale/16, scale/16, 0, c_white, 1);
+					break;
+			}
+		}
 	}
 }
 

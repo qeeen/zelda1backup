@@ -45,13 +45,13 @@ function skelly(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 					break;
 			}
 		}
-		if(approaching){
+		if(approaching && mv_spd == norm_spd){
 			patrol_timer = 0;
 		}
 		
 		if(patrol_timer <= 0){
 			p_dir = irandom_range(1, 4);
-			mv_spd = 0.5;
+			mv_spd = norm_spd;
 			
 			if(instance_exists(link)){
 				if(point_distance(ob.x, ob.y, link.x, link.y) <= vision_range && !approaching){

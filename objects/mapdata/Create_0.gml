@@ -23,6 +23,8 @@ unlocked_doors = ds_list_create()
 collected_items = ds_list_create();
 killed_enemies = ds_list_create();
 destroyed_terrain = ds_list_create();
+collected_maps = ds_list_create();
+collected_compasses = ds_list_create();
 
 shop_mode = false;
 shop_x = 0;
@@ -59,18 +61,41 @@ function generate_ui_map(){
 		var c_tiles = c_room[? "tiles"];
 		var c_enem = c_room[? "enemies"];
 		var empty = true;
+		ui_map[i] = 0;
+		
+		if(c_room[? "item"] != "none"){
+			ui_map[i] = 2;
+			continue;
+		}
+		
 		for(var k = 0; k < ds_list_size(c_tiles); k++){
 			if(c_tiles[| k] != "" || c_enem[| k] != ""){
 				empty = false;
 				break;
 			}
 		}
-	
+		for(var k = 0; k < ds_list_size(c_enem); k++){
+			if(c_enem[| k] == "cb" || c_enem[| k] == "nb"){
+				ui_map[i] = 3;
+				break;
+			}
+		}
+		if(ui_map[i] == 3){
+			continue;
+		}
+		
+		for(var k = 0; k < ds_list_size(c_enem); k++){
+			if(c_tiles[| k] == "m"){
+				ui_map[i] = 4;
+				break;
+			}
+		}
+		if(ui_map[i] == 4){
+			continue;
+		}
+		
 		if(!empty){
 			ui_map[i] = 1;
-		}
-		else{
-			ui_map[i] = 0;
 		}
 	}
 }
@@ -110,7 +135,7 @@ function load_map_file(filename){
 	
 }
 
-load_map_file("debug_ow.rm");
+load_map_file("ow_plains.rm");
 
 function check_for_scroll(){//is run in step
 	if(!instance_exists(link)){
@@ -208,7 +233,8 @@ function load_map(){
 					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", wall)){sprite_index = spr_rock}
 					break;
 				case "bf":
-					instance_create_layer(i*t_size + t_size, k*t_size + t_sizeh, "top_layer", big_fairy);
+					instance_create_layer(i*t_size + t_size - 8, k*t_size + t_sizeh, "top_layer", big_fairy);
+					break;
 				case "g":
 					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", wall)){sprite_index = spr_grave}
 					break;
@@ -243,6 +269,36 @@ function load_map(){
 					break;
 				case "a":
 					instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", bridge);
+					break;	
+				case "pa":
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", bridge)){sprite_index = spr_path;}
+					break;
+				case "sa":
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", bridge)){sprite_index = spr_sand;}
+					break;
+				case "v":
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", bridge)){sprite_index = spr_entrance;}
+					break;
+				case "h":
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", wall)){sprite_index = spr_house;}
+					break;
+				case "sh1":
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", wall)){sprite_index = spr_shop;}
+					break;
+				case "sh2":
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", wall)){sprite_index = spr_blacksmith;}
+					break;
+				case "bh":
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", wall)){sprite_index = spr_bighouse;}
+					break;
+				case "fe":
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", wall)){sprite_index = spr_fence;}
+					break;
+				case "fo":
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", wall)){sprite_index = spr_fountain;}
+					break;
+				case "tg":
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", bridge)){sprite_index = spr_tallgrass;}
 					break;	
 				case "t":
 					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", wall)){sprite_index = spr_tree}
@@ -607,6 +663,16 @@ function tome_found(){
 	jump_load_ext(entered_mapx, entered_mapy, entered_dest_file, false);
 }
 
+function is_map_found(){
+	var ind = ds_list_find_index(collected_maps, current_map_file);
+	return ind != -1;
+}
+
+function is_compass_found(){
+	var ind = ds_list_find_index(collected_compasses, current_map_file);
+	return ind != -1;
+}
+
 function draw_shop_text(){
 	draw_set_color(c_white);
 	draw_set_font(f_NES_small);
@@ -640,7 +706,10 @@ function check_for_pause(){
 	}
 }
 
+mapx = 10;
+mapy = 10;
 load_map();
+
 
 
 
