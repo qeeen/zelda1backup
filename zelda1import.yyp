@@ -118,6 +118,7 @@
     {"id":{"name":"spr_archer_shoot_b","path":"sprites/spr_archer_shoot_b/spr_archer_shoot_b.yy",},"order":4,},
     {"id":{"name":"spr_ui_gate","path":"sprites/spr_ui_gate/spr_ui_gate.yy",},"order":13,},
     {"id":{"name":"spr_dung_wall_double","path":"sprites/spr_dung_wall_double/spr_dung_wall_double.yy",},"order":5,},
+    {"id":{"name":"house","path":"objects/house/house.yy",},"order":6,},
     {"id":{"name":"gui","path":"objects/gui/gui.yy",},"order":0,},
     {"id":{"name":"spr_path","path":"sprites/spr_path/spr_path.yy",},"order":27,},
     {"id":{"name":"spr_skelly_l","path":"sprites/spr_skelly_l/spr_skelly_l.yy",},"order":0,},

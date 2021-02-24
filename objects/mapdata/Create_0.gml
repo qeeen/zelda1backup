@@ -203,6 +203,8 @@ function unload_map(){
 		instance_destroy();
 	with(big_fairy)
 		instance_destroy();
+	with(house)
+		instance_destroy();
 		
 	if(shop_mode){
 		shop_mode = false;
@@ -280,16 +282,16 @@ function load_map(){
 					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", bridge)){sprite_index = spr_entrance;}
 					break;
 				case "h":
-					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", wall)){sprite_index = spr_house;}
+					instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", house)
 					break;
 				case "sh1":
-					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", wall)){sprite_index = spr_shop;}
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", house)){sprite_index = spr_shop;}
 					break;
 				case "sh2":
-					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", wall)){sprite_index = spr_blacksmith;}
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", house)){sprite_index = spr_blacksmith;}
 					break;
 				case "bh":
-					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", wall)){sprite_index = spr_bighouse;}
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "Instances", house)){sprite_index = spr_bighouse; door_width = 32;}
 					break;
 				case "fe":
 					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", wall)){sprite_index = spr_fence;}
