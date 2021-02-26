@@ -4,3 +4,5 @@ dmg = 2;
 
 mv_dir = 0;
 spd = 0;
+
+hit_grass = false;

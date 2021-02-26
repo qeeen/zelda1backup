@@ -48,3 +48,28 @@ if(mapdata.pause_timer > 0){
 else{
 	visible = true;
 }
+
+if(place_meeting(x, y, tall_grass) && !hit_grass){
+	var tg = instance_place(x, y, tall_grass);
+	instance_destroy(tg);
+	hit_grass = true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

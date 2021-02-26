@@ -21,6 +21,10 @@ else{
 	}
 }
 
+if(mapdata.shop_mode){
+	sprite_index = spr_cave_d_open;
+}
+
 if(bombable && locked && place_meeting(x, y, explosion)){
 	mapdata.remember_lock(self);
 	locked = false;

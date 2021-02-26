@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"e291a984-084b-49a9-8cc8-26a8796469a4","path":"sprites/spr_bighouse/spr_bighouse.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e291a984-084b-49a9-8cc8-26a8796469a4","path":"sprites/spr_bighouse/spr_bighouse.yy",},"LayerId":{"name":"4d0ff954-ed23-45b8-9d0d-a2e2730b7f31","path":"sprites/spr_bighouse/spr_bighouse.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_bighouse","path":"sprites/spr_bighouse/spr_bighouse.yy",},"resourceVersion":"1.0","name":"e291a984-084b-49a9-8cc8-26a8796469a4","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"22268f9d-40b1-4957-a9b7-4808b37b8593","path":"sprites/spr_bighouse/spr_bighouse.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"22268f9d-40b1-4957-a9b7-4808b37b8593","path":"sprites/spr_bighouse/spr_bighouse.yy",},"LayerId":{"name":"f812110a-e60b-4809-bbcc-c92311f72e92","path":"sprites/spr_bighouse/spr_bighouse.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_bighouse","path":"sprites/spr_bighouse/spr_bighouse.yy",},"resourceVersion":"1.0","name":"22268f9d-40b1-4957-a9b7-4808b37b8593","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_bighouse","path":"sprites/spr_bighouse/spr_bighouse.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"d6389848-5774-4f1d-a3b1-39189ed0d2bc","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e291a984-084b-49a9-8cc8-26a8796469a4","path":"sprites/spr_bighouse/spr_bighouse.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"f3f9a010-968c-4f3e-b7b7-6e5279ba2278","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"22268f9d-40b1-4957-a9b7-4808b37b8593","path":"sprites/spr_bighouse/spr_bighouse.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"4d0ff954-ed23-45b8-9d0d-a2e2730b7f31","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"f812110a-e60b-4809-bbcc-c92311f72e92","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "terrain",

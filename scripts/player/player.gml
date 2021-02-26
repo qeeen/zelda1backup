@@ -10,10 +10,11 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 	ladder_charge = 0;
 	inventory = ds_list_create();
 	collected = "";
+	heart_pieces = 0;
 	
 	keys = 0;
 	bombs = 4;
-	pearls = 60;
+	pearls = 100;
 	weapon = "white_sword";
 	off_hand = "none";
 	ds_list_add(inventory, weapon);
@@ -256,10 +257,18 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 	function do_collect(args){
 		var item = args[0];
 	
-		switch(item){
+		switch(item){//FULL items BREAK, PICKUPS need to RETURN (except bombs)
 			case "map":
 				with(mapdata){
 					ds_list_add(collected_maps, current_map_file);
+				}
+				return;
+			case "heart_piece":
+				heart_pieces++;
+				if(heart_pieces >= 4){
+					max_health +=2;
+					c_health = max_health;
+					heart_pieces = 0;
 				}
 				return;
 			case "compass":
