@@ -4,6 +4,8 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 	iframe_time = 60;
 	max_health = 6;
 	c_health = 6;
+	max_mana = 10;
+	c_mana = max_mana;
 	heal_over_time = 0;
 	frames_per_hp = 8;
 	candle_charge = 1;
@@ -14,10 +16,10 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 	
 	keys = 0;
 	bombs = 4;
-	pearls = 100;
-	weapon = "white_sword";
-	off_hand = "none";
-	ds_list_add(inventory, weapon);
+	pearls = 1000;
+	weapon = 0//"white_sword";
+	off_hand = 1//"none";
+	ds_list_add(inventory, "white_sword");
 	ds_list_add(inventory, "bomb");
 	//ds_list_add(inventory, off_hand); /// FOR DEBUGGING, SHOULD NOT STAY
 	
@@ -33,6 +35,9 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 	function input(){
 		if(keyboard_check_pressed(ord("H"))){//debug button
 			no_clip = !no_clip
+		}
+		if(keyboard_check_pressed(ord("J"))){//debug button
+			request("collect", ["bottle", 1], 1, 0);
 		}
 		
 		var k_u = keyboard_check(ord("W")) || keyboard_check(vk_up);
@@ -83,9 +88,9 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 		
 		//abilities
 		if(k_a)
-			request("attacking", [weapon], 1, 0);
+			request("attacking", [inventory[| weapon]], 1, 0);
 		if(k_b)
-			request("attacking", [off_hand], 1, 0);
+			request("attacking", [inventory[| off_hand]], 1, 0);
 	}
 	
 	function unique_step(){
@@ -305,9 +310,18 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 			case "golden_lilypad":
 				ladder_charge = 1;
 				break;
+			case "red_potion":
+			case "green_potion":
+			case "blue_potion":
+				var bottle_index = ds_list_find_index(inventory, "bottle");
+				if(bottle_index == -1){
+					return;
+				}
+				inventory[| bottle_index] = string_replace(item, "_potion", "_bottle");
+				return;
 		}
 		
-		if(ds_list_find_index(inventory, item) == -1){
+		if(item != "bomb" || ds_list_find_index(inventory, item) == -1){
 			ds_list_add(inventory, item);
 		}
 	}
@@ -401,6 +415,34 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 				dir = other.dir;
 			}
 			bombs--;
+		}
+		else if(args[0] == "red_bottle" || args[0] == "green_bottle" || args[0] == "blue_bottle"){
+			if((args[0] == "red_bottle" && c_health == max_health) 
+			|| (args[0] == "green_bottle" && c_mana == max_mana) 
+			|| (args[0] == "blue_bottle" && c_health == max_health && c_mana == max_mana))
+			{
+				return;
+			}
+			
+			if(inventory[| weapon] == args[0]){
+				inventory[| weapon] = "bottle";
+			}
+			else if(inventory[| off_hand] == args[0]){
+				inventory[| off_hand] = "bottle";
+			}
+		
+			if(args[0] == "red_bottle" || args[0] == "blue_bottle"){
+				c_health += 12;
+				if(c_health > max_health){
+					c_health = max_health;
+				}
+			}
+			if(args[0] == "green_bottle" || args[0] == "blue_bottle"){
+				c_mana += 12;
+				if(c_mana > max_mana){
+					c_mana = max_mana;
+				}
+			}
 		}
 		else{
 			return;

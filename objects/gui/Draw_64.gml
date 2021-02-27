@@ -70,6 +70,16 @@ draw_rectangle(xbse - 40, ybse+32, xbse+56, ybse+192, 0);
 draw_rectangle(xbse+80, ybse+32, xbse+80 + 96, ybse+192, 0);
 
 function find_sprite_name(name){
+	if(name == noone || name == -1 || name == 0){
+		return spr_entrance;
+	}
+	if(asset_get_index("spr_" + name) != -1){
+		return asset_get_index("spr_" + name);
+	}
+	else{
+		return spr_entrance;
+	}
+	/*
 	switch(name){
 		case "white_sword":
 			return spr_white_sword;
@@ -89,13 +99,17 @@ function find_sprite_name(name){
 		default:
 			return spr_entrance;
 			break;
-	}
+	}*/
 }
 
-var a_sprite = find_sprite_name(link.slef.weapon);
-var b_sprite = find_sprite_name(link.slef.off_hand);
-draw_sprite_ext(a_sprite, 0, xbse - 40 + 48, ybse+32 + 48 + 24, 5, 5, 0, c_white, 1);
-draw_sprite_ext(b_sprite, 0, xbse+80 + 48, ybse+32 + 48 + 24, 5, 5, 0, c_white, 1);
+var a_sprite = find_sprite_name(link.slef.inventory[| link.slef.weapon]);
+var b_sprite = find_sprite_name(link.slef.inventory[| link.slef.off_hand]);
+if(a_sprite != -1){
+	draw_sprite_ext(a_sprite, 0, xbse - 40 + 48, ybse+32 + 48 + 24, 5, 5, 0, c_white, 1);
+}
+if(b_sprite != -1){
+	draw_sprite_ext(b_sprite, 0, xbse+80 + 48, ybse+32 + 48 + 24, 5, 5, 0, c_white, 1);
+}
 
 //inventory
 xbse = 1920-80*5 + 16;
@@ -125,16 +139,16 @@ if(mapdata.paused && mapdata.pause_timer <= 0){
 	cursor_i = clamp(cursor_i, pos_min, pos_max);
 	
 	if(keyboard_check_pressed(ord("Z"))){
-		if(link.slef.off_hand == link.slef.inventory[| cursor_i]){
+		if(link.slef.off_hand == cursor_i){
 			link.slef.off_hand = link.slef.weapon;
 		}
-		link.slef.weapon = link.slef.inventory[| cursor_i];
+		link.slef.weapon = cursor_i;
 	}
 	if(keyboard_check_pressed(ord("X"))){
-		if(link.slef.weapon == link.slef.inventory[| cursor_i]){
+		if(link.slef.weapon == cursor_i){
 			link.slef.weapon = link.slef.off_hand;
 		}
-		link.slef.off_hand = link.slef.inventory[| cursor_i];
+		link.slef.off_hand = cursor_i;
 	}
 }
 else{

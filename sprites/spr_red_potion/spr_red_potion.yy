@@ -1,5 +1,5 @@
 {
-  "bboxMode": 0,
+  "bboxMode": 1,
   "collisionKind": 1,
   "type": 0,
   "origin": 4,
@@ -10,12 +10,12 @@
   "bbox_left": 0,
   "bbox_right": 15,
   "bbox_top": 0,
-  "bbox_bottom": 31,
+  "bbox_bottom": 15,
   "HTile": false,
   "VTile": false,
   "For3D": false,
   "width": 16,
-  "height": 32,
+  "height": 16,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"34b01284-ca4e-4df5-9c11-d40207861221","path":"sprites/spr_cave_wall/spr_cave_wall.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"34b01284-ca4e-4df5-9c11-d40207861221","path":"sprites/spr_cave_wall/spr_cave_wall.yy",},"LayerId":{"name":"96859da1-9dd3-4938-a648-a6d751e7064b","path":"sprites/spr_cave_wall/spr_cave_wall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_cave_wall","path":"sprites/spr_cave_wall/spr_cave_wall.yy",},"resourceVersion":"1.0","name":"34b01284-ca4e-4df5-9c11-d40207861221","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"6716b3ab-2302-4e3a-a92a-9fc2ccffd2cf","path":"sprites/spr_red_potion/spr_red_potion.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"6716b3ab-2302-4e3a-a92a-9fc2ccffd2cf","path":"sprites/spr_red_potion/spr_red_potion.yy",},"LayerId":{"name":"981e0922-ec5c-4cbe-904d-1ea8979fdf64","path":"sprites/spr_red_potion/spr_red_potion.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_red_potion","path":"sprites/spr_red_potion/spr_red_potion.yy",},"resourceVersion":"1.0","name":"6716b3ab-2302-4e3a-a92a-9fc2ccffd2cf","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_cave_wall","path":"sprites/spr_cave_wall/spr_cave_wall.yy",},
+    "spriteId": {"name":"spr_red_potion","path":"sprites/spr_red_potion/spr_red_potion.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"582169ec-64a4-4125-8942-2a71548bfb5f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"34b01284-ca4e-4df5-9c11-d40207861221","path":"sprites/spr_cave_wall/spr_cave_wall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"11346b81-603f-44e0-92b1-a94191c796fe","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6716b3ab-2302-4e3a-a92a-9fc2ccffd2cf","path":"sprites/spr_red_potion/spr_red_potion.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -55,24 +55,24 @@
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
     "xorigin": 8,
-    "yorigin": 16,
+    "yorigin": 8,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_cave_wall","path":"sprites/spr_cave_wall/spr_cave_wall.yy",},
+    "parent": {"name":"spr_red_potion","path":"sprites/spr_red_potion/spr_red_potion.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_cave_wall",
+    "name": "spr_red_potion",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"96859da1-9dd3-4938-a648-a6d751e7064b","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"981e0922-ec5c-4cbe-904d-1ea8979fdf64","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "cave_walls",
-    "path": "folders/Sprites/cave_walls.yy",
+    "name": "bottle",
+    "path": "folders/Sprites/items/bottle.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_cave_wall",
+  "name": "spr_red_potion",
   "tags": [],
   "resourceType": "GMSprite",
 }

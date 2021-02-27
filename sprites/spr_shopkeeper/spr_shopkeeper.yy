@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"2a741056-748f-47fa-b386-8ffc016646d7","path":"sprites/spr_shopkeeper/spr_shopkeeper.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"2a741056-748f-47fa-b386-8ffc016646d7","path":"sprites/spr_shopkeeper/spr_shopkeeper.yy",},"LayerId":{"name":"c8ca3074-e8f4-4220-b30e-45ed6760c4f6","path":"sprites/spr_shopkeeper/spr_shopkeeper.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_shopkeeper","path":"sprites/spr_shopkeeper/spr_shopkeeper.yy",},"resourceVersion":"1.0","name":"2a741056-748f-47fa-b386-8ffc016646d7","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"9ff91c20-4e21-480f-aefb-e06691503126","path":"sprites/spr_shopkeeper/spr_shopkeeper.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"9ff91c20-4e21-480f-aefb-e06691503126","path":"sprites/spr_shopkeeper/spr_shopkeeper.yy",},"LayerId":{"name":"046012a2-cd1d-41f3-a80f-87a682225cd3","path":"sprites/spr_shopkeeper/spr_shopkeeper.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_shopkeeper","path":"sprites/spr_shopkeeper/spr_shopkeeper.yy",},"resourceVersion":"1.0","name":"9ff91c20-4e21-480f-aefb-e06691503126","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_shopkeeper","path":"sprites/spr_shopkeeper/spr_shopkeeper.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"8a06a344-53df-447b-be81-bf416f7a27bd","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2a741056-748f-47fa-b386-8ffc016646d7","path":"sprites/spr_shopkeeper/spr_shopkeeper.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"753c4585-ded1-4724-b758-5286ff7311ff","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9ff91c20-4e21-480f-aefb-e06691503126","path":"sprites/spr_shopkeeper/spr_shopkeeper.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c8ca3074-e8f4-4220-b30e-45ed6760c4f6","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"046012a2-cd1d-41f3-a80f-87a682225cd3","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "shop",

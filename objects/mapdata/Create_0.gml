@@ -438,7 +438,7 @@ function jump_load_ext(dest_x, dest_y, dest_file, is_local){
 		var item3 = dest[? "item3"];
 		var cost3 = dest[? "cost3"];
 		
-		var keeper_ob = instance_create_layer(128 - 8, 64 - 8, "Instances", wall);
+		var keeper_ob = instance_create_layer(128, 64 - 8, "Instances", wall);
 		switch(keeper){
 			case "shopkeeper":
 				keeper_ob.sprite_index = spr_shopkeeper;
@@ -446,21 +446,24 @@ function jump_load_ext(dest_x, dest_y, dest_file, is_local){
 			case "groad":
 				keeper_ob.sprite_index = spr_groad;
 				break;
+			case "witch":
+				keeper_ob.sprite_index = spr_witch;
+				break;
 		}
 		
-		with(instance_create_layer(128 - 8 - 32, 64 - 8, "Instances", wall)){sprite_index = spr_blue_flame;}
-		with(instance_create_layer(128 - 8 + 32, 64 - 8, "Instances", wall)){sprite_index = spr_blue_flame;}
+		with(instance_create_layer(128 - 32, 64 - 8, "Instances", wall)){sprite_index = spr_blue_flame;}
+		with(instance_create_layer(128 + 32, 64 - 8, "Instances", wall)){sprite_index = spr_blue_flame;}
 		
 		if(item1 != "none")
-			with(instance_create_layer(128-32 - 8, 64+32 - 8, "Instances", shop_item)){item = item1; cost = cost1;}
+			with(instance_create_layer(128-32, 64+32 - 8, "Instances", shop_item)){item = item1; cost = cost1;}
 		if(item2 != "none")
-			with(instance_create_layer(128 - 8, 64+32 - 8, "Instances", shop_item)){item = item2; cost = cost2;}
+			with(instance_create_layer(128, 64+32 - 8, "Instances", shop_item)){item = item2; cost = cost2;}
 		if(item3 != "none")
-			with(instance_create_layer(128+32 - 8, 64+32 - 8, "Instances", shop_item)){item = item3; cost = cost3;}
+			with(instance_create_layer(128+32, 64+32 - 8, "Instances", shop_item)){item = item3; cost = cost3;}
 		
 		shop_x = link.x;
 		shop_y = link.y + 10;
-		link.x = 128 - 8;
+		link.x = 128;
 		link.y = 196 - 8;
 		link.slef.candle_charge = 1;
 		
@@ -722,11 +725,11 @@ function draw_shop_text(){
 	var cost3 = dest[? "cost3"];
 	
 	if(cost1 > 0)
-		draw_text(128-32 - 8, 64+32, string(cost1));
+		draw_text(128-32, 64+32+8, string(cost1));
 	if(cost2 > 0)
-		draw_text(128 - 8, 64+32, string(cost2));
+		draw_text(128, 64+32+8, string(cost2));
 	if(cost3 > 0)
-		draw_text(128+32 - 8, 64+32, string(cost3));
+		draw_text(128+32, 64+32+8, string(cost3));
 }
 
 function check_for_pause(){
