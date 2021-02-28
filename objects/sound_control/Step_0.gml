@@ -1,5 +1,11 @@
-if(audio_sound_get_track_position(playing) > full_length){
-	audio_sound_set_track_position(playing, audio_sound_get_track_position(playing) - (full_length-intro_length));
+
+
+if(has_intro){
+	if(audio_sound_get_track_position(playing) > full_length){
+		audio_sound_set_track_position(playing, audio_sound_get_track_position(playing) - (full_length-intro_length));
 	
+	}
 }
-show_debug_message(audio_sound_get_track_position(playing))
+//show_debug_message(audio_sound_get_track_position(playing))
+
+audio_master_gain(volume/100);

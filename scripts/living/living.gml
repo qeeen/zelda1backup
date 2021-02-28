@@ -80,8 +80,13 @@ function living(_ob, _x, _y) : entity(_ob, _x, _y) constructor{
 		if(!invuln){
 			c_health -= args[0];
 			request("iframes", [iframe_time], 1, 0);
+			
 			if(c_health <= 0){
 				request("die", -1, 1, 1);
+				sound_control.play_sound("death");
+			}
+			else{
+				sound_control.play_sound("hit");
 			}
 		}
 	}

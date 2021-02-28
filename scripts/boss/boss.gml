@@ -23,6 +23,8 @@ function boss(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 	sprite_b = spr_crab_boss_l;
 	ob.mask_index = spr_crab_boss_l;
 	
+	sound_control.switch_song("boss");
+	
 	function input(){
 		var p_dir = 0;
 		target_x = floor((256-link.x)/16)*16// + 8;
@@ -121,6 +123,15 @@ function boss(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 		instance_create_layer(ob.x, ob.y, "Instances", death_anim);
 		instance_destroy(claw);
 		instance_destroy(ob);
+	}
+	
+	function on_destroy(){
+		if(mapdata.is_dungeon){
+			sound_control.switch_song("dungeon");
+		}
+		else{
+			sound_control.switch_song("overworld");
+		}
 	}
 	
 	function unique_step(){

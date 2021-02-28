@@ -13,8 +13,8 @@
   "soundFile": "sng_overworld.ogg",
   "duration": 69.1177,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "music",
+    "path": "folders/Sounds/music.yy",
   },
   "resourceVersion": "1.0",
   "name": "sng_overworld",

@@ -1,0 +1,1 @@
+slef.on_destroy();

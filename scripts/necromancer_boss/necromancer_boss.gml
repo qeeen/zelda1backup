@@ -19,6 +19,8 @@ function necromancer_boss(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 	sprite_b = spr_necro_l;
 	ob.mask_index = spr_necro_r;
 	
+	sound_control.switch_song("boss");
+	
 	function input(){
 		var p_dir = 0;
 		
@@ -174,6 +176,7 @@ function necromancer_boss(_ob, _x, _y) : enem(_ob, _x, _y) constructor{
 	}
 	
 	function do_die(args){
+		sound_control.switch_song("none");
 		instance_create_layer(ob.x, ob.y, "Instances", death_anim);
 		with(struct_enem){
 			slef.request("die", [0], 1, 0);

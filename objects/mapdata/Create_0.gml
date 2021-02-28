@@ -115,6 +115,10 @@ function load_map_file(filename){
 		bg_text = wrapper[? "bg_sprite"];
 		if(is_dungeon){
 			bg_sprite = dung;
+			sound_control.switch_song("dungeon");
+		}
+		else{
+			sound_control.switch_song("overworld");
 		}
 		layer_background_sprite(layer_background_get_id("Background"), bg_sprite);
 		layer_background_blend(layer_background_get_id("Background"), mapdata.get_color());

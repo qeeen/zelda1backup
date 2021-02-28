@@ -37,7 +37,7 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 			no_clip = !no_clip
 		}
 		if(keyboard_check_pressed(ord("J"))){//debug button
-			request("collect", ["bottle", 1], 1, 0);
+			sound_control.play_sound("hit");
 		}
 		
 		var k_u = keyboard_check(ord("W")) || keyboard_check(vk_up);
@@ -346,6 +346,7 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 				
 				life = other.atk_dur;
 				ob = other.ob;
+				sound_control.play_sound("sword");
 			}
 		}
 		else if(args[0] == "magic_rod"){

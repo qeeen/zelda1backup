@@ -64,6 +64,10 @@ function enem(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 		instance_destroy(ob);
 	}
 	
+	function on_destroy(){
+		return;
+	}
+	
 	function unique_step(){
 		hit_on_touch();
 	}
