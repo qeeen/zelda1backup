@@ -46,6 +46,7 @@ function switch_song(song){
 			has_intro = false;
 			break;
 		case "none":
+			playing = noone;
 			has_intro = false;
 			break;
 	}

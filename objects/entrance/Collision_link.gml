@@ -1,3 +1,1 @@
-if(mapdata.cleared){
-	mapdata.jump_load();
-}
+mapdata.jump_load();

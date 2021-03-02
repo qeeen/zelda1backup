@@ -21,7 +21,7 @@ else{
 	}
 }
 
-if(mapdata.shop_mode){
+if(mapdata.shop_mode || mapdata.bg_text == "cave"){
 	sprite_index = spr_cave_d_open;
 }
 

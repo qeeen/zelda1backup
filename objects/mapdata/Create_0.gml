@@ -113,12 +113,15 @@ function load_map_file(filename){
 		is_dungeon = wrapper[? "is_dungeon"];
 		bg_sprite = asset_get_index(wrapper[? "bg_sprite"])
 		bg_text = wrapper[? "bg_sprite"];
-		if(is_dungeon){
+		if(is_dungeon && bg_text != "cave"){
 			bg_sprite = dung;
 			sound_control.switch_song("dungeon");
 		}
 		else{
 			sound_control.switch_song("overworld");
+		}
+		if(bg_text == "cave"){
+			bg_sprite = spr_entrance;
 		}
 		layer_background_sprite(layer_background_get_id("Background"), bg_sprite);
 		layer_background_blend(layer_background_get_id("Background"), mapdata.get_color());
@@ -237,6 +240,7 @@ function load_map(){
 				case "w":
 					var wll = instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", wall);
 					if(is_dungeon){wll.sprite_index = spr_block; wll.img_color = get_color();}
+					if(bg_text == "cave"){wll.sprite_index = spr_wall_cave;}
 					break;
 				case "r":
 					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "world_tiles", wall)){sprite_index = spr_rock}
@@ -495,6 +499,20 @@ function jump_load_ext(dest_x, dest_y, dest_file, is_local){
 
 	load_map();
 	link.slef.candle_charge = 1;
+	
+	if(!instance_exists(entrance)){
+		var bombable_ob = noone;
+		if(instance_exists(cracked_wall)){
+			bombable_ob = cracked_wall;
+		}
+		if(instance_exists(burnable_bush)){
+			bombable_ob = burnable_bush;
+		}
+		instance_create_layer(bombable_ob.x, bombable_ob.y, "world_tiles", entrance);
+		ds_list_add(destroyed_terrain, [current_map_file, mapx, mapy]);
+		instance_destroy(bombable_ob);
+	}
+	
 	if(from_where == "dungeon" && instance_exists(entrance)){                        ///This code is dangerous since it assumes there will be an entrance on the other side, and not a bombable wall or something
 		link.x = entrance.x;
 		link.y = entrance.y + 16;
@@ -502,6 +520,9 @@ function jump_load_ext(dest_x, dest_y, dest_file, is_local){
 	else if(from_where == "ow" && instance_exists(entrance)){
 		link.x = entrance.x;
 		link.y = entrance.y - 16;
+		if(entrance.y <= 32){
+			link.y += 32;
+		}
 	}
 	else if(is_dungeon){
 		link.x = 64;
@@ -516,7 +537,7 @@ function set_dungeon_walls(){
 	var double_wall_sprite = spr_dung_wall_double;
 	var door_sprite = spr_dung_d_open;
 	//var bombable_sprite = spr_dung_d_cracked;
-	if(shop_mode){
+	if(shop_mode || bg_text = "cave"){
 		corner_sprite = spr_cave_corner;
 		wall_sprite = spr_cave_wall;
 		double_wall_sprite = spr_cave_wall_double;

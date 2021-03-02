@@ -173,6 +173,7 @@
     {"id":{"name":"spr_necro_res_l","path":"sprites/spr_necro_res_l/spr_necro_res_l.yy",},"order":5,},
     {"id":{"name":"spr_burn_bush","path":"sprites/spr_burn_bush/spr_burn_bush.yy",},"order":10,},
     {"id":{"name":"wall","path":"objects/wall/wall.yy",},"order":4,},
+    {"id":{"name":"spr_wall_cave","path":"sprites/spr_wall_cave/spr_wall_cave.yy",},"order":4,},
     {"id":{"name":"spr_cave_wall","path":"sprites/spr_cave_wall/spr_cave_wall.yy",},"order":1,},
     {"id":{"name":"spr_archer_f","path":"sprites/spr_archer_f/spr_archer_f.yy",},"order":0,},
     {"id":{"name":"sng_dungeon","path":"sounds/sng_dungeon/sng_dungeon.yy",},"order":1,},
