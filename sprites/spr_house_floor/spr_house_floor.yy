@@ -2,7 +2,7 @@
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
-  "origin": 4,
+  "origin": 0,
   "preMultiplyAlpha": false,
   "edgeFiltering": false,
   "collisionTolerance": 0,
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"874b216e-d684-4dd1-9ac6-8efef5514a60","path":"sprites/spr_blacksmith/spr_blacksmith.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"874b216e-d684-4dd1-9ac6-8efef5514a60","path":"sprites/spr_blacksmith/spr_blacksmith.yy",},"LayerId":{"name":"e5230513-5f75-494e-ac5f-56282f49b24f","path":"sprites/spr_blacksmith/spr_blacksmith.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_blacksmith","path":"sprites/spr_blacksmith/spr_blacksmith.yy",},"resourceVersion":"1.0","name":"874b216e-d684-4dd1-9ac6-8efef5514a60","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"b536db3b-9e9e-466b-b62d-7982196e3e6b","path":"sprites/spr_house_floor/spr_house_floor.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"b536db3b-9e9e-466b-b62d-7982196e3e6b","path":"sprites/spr_house_floor/spr_house_floor.yy",},"LayerId":{"name":"93319eff-3124-4ca6-9daf-4d1b45afec02","path":"sprites/spr_house_floor/spr_house_floor.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_house_floor","path":"sprites/spr_house_floor/spr_house_floor.yy",},"resourceVersion":"1.0","name":"b536db3b-9e9e-466b-b62d-7982196e3e6b","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_blacksmith","path":"sprites/spr_blacksmith/spr_blacksmith.yy",},
+    "spriteId": {"name":"spr_house_floor","path":"sprites/spr_house_floor/spr_house_floor.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"a1f9293f-791a-4d3c-9705-a94ab9a9643d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"874b216e-d684-4dd1-9ac6-8efef5514a60","path":"sprites/spr_blacksmith/spr_blacksmith.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"151faca4-23b8-4535-bf15-c3755ec49f4b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b536db3b-9e9e-466b-b62d-7982196e3e6b","path":"sprites/spr_house_floor/spr_house_floor.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -54,25 +54,25 @@
     "backdropHeight": 768,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 8,
-    "yorigin": 8,
+    "xorigin": 0,
+    "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_blacksmith","path":"sprites/spr_blacksmith/spr_blacksmith.yy",},
+    "parent": {"name":"spr_house_floor","path":"sprites/spr_house_floor/spr_house_floor.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_blacksmith",
+    "name": "spr_house_floor",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e5230513-5f75-494e-ac5f-56282f49b24f","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"93319eff-3124-4ca6-9daf-4d1b45afec02","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "shop",
-    "path": "folders/Sprites/shop.yy",
+    "name": "house_walls",
+    "path": "folders/Sprites/house_walls.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_blacksmith",
+  "name": "spr_house_floor",
   "tags": [],
   "resourceType": "GMSprite",
 }

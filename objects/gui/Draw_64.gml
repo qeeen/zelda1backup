@@ -73,8 +73,8 @@ function find_sprite_name(name){
 	if(name == noone || name == -1 || name == 0){
 		return spr_entrance;
 	}
-	if(asset_get_index("spr_" + name) != -1){
-		return asset_get_index("spr_" + name);
+	if(asset_get_index("spr_" + string(name)) != -1){
+		return asset_get_index("spr_" + string(name));
 	}
 	else{
 		return spr_entrance;

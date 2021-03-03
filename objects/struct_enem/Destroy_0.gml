@@ -1,1 +1,2 @@
-slef.on_destroy();
+delete slef;
+//slef.on_destroy();

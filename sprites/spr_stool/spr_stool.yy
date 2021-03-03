@@ -1,5 +1,5 @@
 {
-  "bboxMode": 0,
+  "bboxMode": 1,
   "collisionKind": 1,
   "type": 0,
   "origin": 4,
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"874b216e-d684-4dd1-9ac6-8efef5514a60","path":"sprites/spr_blacksmith/spr_blacksmith.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"874b216e-d684-4dd1-9ac6-8efef5514a60","path":"sprites/spr_blacksmith/spr_blacksmith.yy",},"LayerId":{"name":"e5230513-5f75-494e-ac5f-56282f49b24f","path":"sprites/spr_blacksmith/spr_blacksmith.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_blacksmith","path":"sprites/spr_blacksmith/spr_blacksmith.yy",},"resourceVersion":"1.0","name":"874b216e-d684-4dd1-9ac6-8efef5514a60","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"c6a53797-52c0-40fa-8645-095f49675dc1","path":"sprites/spr_stool/spr_stool.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"c6a53797-52c0-40fa-8645-095f49675dc1","path":"sprites/spr_stool/spr_stool.yy",},"LayerId":{"name":"c911109c-1c6c-4ec9-b2ef-44bbe3df6f9b","path":"sprites/spr_stool/spr_stool.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_stool","path":"sprites/spr_stool/spr_stool.yy",},"resourceVersion":"1.0","name":"c6a53797-52c0-40fa-8645-095f49675dc1","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_blacksmith","path":"sprites/spr_blacksmith/spr_blacksmith.yy",},
+    "spriteId": {"name":"spr_stool","path":"sprites/spr_stool/spr_stool.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"a1f9293f-791a-4d3c-9705-a94ab9a9643d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"874b216e-d684-4dd1-9ac6-8efef5514a60","path":"sprites/spr_blacksmith/spr_blacksmith.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"164d5baf-27d8-402f-9d58-e22277ed638e","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c6a53797-52c0-40fa-8645-095f49675dc1","path":"sprites/spr_stool/spr_stool.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,21 +58,21 @@
     "yorigin": 8,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_blacksmith","path":"sprites/spr_blacksmith/spr_blacksmith.yy",},
+    "parent": {"name":"spr_stool","path":"sprites/spr_stool/spr_stool.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_blacksmith",
+    "name": "spr_stool",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e5230513-5f75-494e-ac5f-56282f49b24f","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c911109c-1c6c-4ec9-b2ef-44bbe3df6f9b","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "shop",
-    "path": "folders/Sprites/shop.yy",
+    "name": "house_walls",
+    "path": "folders/Sprites/house_walls.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_blacksmith",
+  "name": "spr_stool",
   "tags": [],
   "resourceType": "GMSprite",
 }

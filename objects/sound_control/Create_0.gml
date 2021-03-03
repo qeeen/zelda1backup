@@ -1,4 +1,4 @@
-volume = 10;
+volume = 0;
 
 playing = noone;
 intro_length = 0;

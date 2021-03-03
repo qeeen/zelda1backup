@@ -25,6 +25,7 @@ killed_enemies = ds_list_create();
 destroyed_terrain = ds_list_create();
 collected_maps = ds_list_create();
 collected_compasses = ds_list_create();
+given_items = ds_list_create();
 
 shop_mode = false;
 shop_x = 0;
@@ -32,6 +33,7 @@ shop_y = 0;
 entered_mapx = 0;
 entered_mapy = 0;
 current_map_file = "";
+hide_item = [false, false, false];
 
 paused = false;
 pause_timer = 0;
@@ -299,7 +301,7 @@ function load_map(){
 					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "mid_world_tiles", house)){sprite_index = spr_shop;}
 					break;
 				case "sh2":
-					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "mid_world_tiles", house)){sprite_index = spr_blacksmith;}
+					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "mid_world_tiles", house)){sprite_index = spr_blacksmith_house;}
 					break;
 				case "bh":
 					with(instance_create_layer(i*t_size + t_sizeh, k*t_size + t_sizeh, "mid_world_tiles", house)){sprite_index = spr_bighouse; door_width = 32;}
@@ -437,6 +439,7 @@ function jump_load_ext(dest_x, dest_y, dest_file, is_local){
 		shop_mode = true;
 		layer_background_sprite(layer_background_get_id("Background"), spr_entrance);
 		set_dungeon_walls();
+		hide_item = [false, false, false];
 		
 		var keeper = dest[? "vendor"];
 		var item1 = dest[? "item1"];
@@ -457,17 +460,53 @@ function jump_load_ext(dest_x, dest_y, dest_file, is_local){
 			case "witch":
 				keeper_ob.sprite_index = spr_witch;
 				break;
+			case "blacksmith":
+				keeper_ob.sprite_index = spr_blacksmith;
+				break;
 		}
-		
-		with(instance_create_layer(128 - 32, 64 - 8, "Instances", wall)){sprite_index = spr_blue_flame;}
-		with(instance_create_layer(128 + 32, 64 - 8, "Instances", wall)){sprite_index = spr_blue_flame;}
-		
-		if(item1 != "none")
-			with(instance_create_layer(128-32, 64+32 - 8, "Instances", shop_item)){item = item1; cost = cost1;}
-		if(item2 != "none")
-			with(instance_create_layer(128, 64+32 - 8, "Instances", shop_item)){item = item2; cost = cost2;}
-		if(item3 != "none")
-			with(instance_create_layer(128+32, 64+32 - 8, "Instances", shop_item)){item = item3; cost = cost3;}
+		if(get_cave_theme() == "cave"){
+			with(instance_create_layer(128 - 32, 64 - 8, "Instances", wall)){sprite_index = spr_blue_flame;}
+			with(instance_create_layer(128 + 32, 64 - 8, "Instances", wall)){sprite_index = spr_blue_flame;}
+		}
+		else if(get_cave_theme() == "house"){
+			layer_background_sprite(layer_background_get_id("Background"), spr_house_floor);
+			with(instance_create_layer(48, 240-80, "Instances", wall)){sprite_index = spr_table;}
+			with(instance_create_layer(48, 240-64, "Instances", bridge)){sprite_index = spr_stool;}
+		}
+		if(keeper == "blacksmith"){
+			/*var sw_ingot = false;
+			var rng_ingot = false;
+			hide_item = [true, true, true];
+			for(var i = 0; i < ds_list_size(given_items); i++){
+				var cur = given_items[| i];
+				show_message(cur[1]);
+				if(cur[0] == "blacksmith"){
+					if(cur[1] == "ingot"){
+						sw_ingot = true;
+						hide_item[0] = false;
+					}
+					if(cur[1] == "gold_ingot"){
+						rng_ingot = true;
+						hide_item[1] = false;
+					}
+				}
+			}*/
+			
+			if(item1 != "none")
+				with(instance_create_layer(128-32, 64+32 - 8, "Instances", shop_item)){item = item1; cost = cost1; order = 1; req = ["blacksmith", "ingot"]}
+			if(item2 != "none")
+				with(instance_create_layer(128, 64+32 - 8, "Instances", shop_item)){item = item2; cost = cost2; order = 2; req = ["blacksmith", "gold_ingot"]}
+			if(item3 != "none")
+				with(instance_create_layer(128+32, 64+32 - 8, "Instances", shop_item)){item = item3; cost = cost3; order = 3;}
+		}
+		else{
+			if(item1 != "none")
+				with(instance_create_layer(128-32, 64+32 - 8, "Instances", shop_item)){item = item1; cost = cost1; order = 1;}
+			if(item2 != "none")
+				with(instance_create_layer(128, 64+32 - 8, "Instances", shop_item)){item = item2; cost = cost2; order = 2;}
+			if(item3 != "none")
+				with(instance_create_layer(128+32, 64+32 - 8, "Instances", shop_item)){item = item3; cost = cost3; order = 3;}
+		}
 		
 		shop_x = link.x;
 		shop_y = link.y + 10;
@@ -542,6 +581,13 @@ function set_dungeon_walls(){
 		wall_sprite = spr_cave_wall;
 		double_wall_sprite = spr_cave_wall_double;
 		door_sprite = spr_cave_d_open;
+		//bombable_sprite = spr_cave_d_cracked;
+	}
+	if(bg_text = "house" || get_cave_theme() == "house"){
+		corner_sprite = spr_house_corner;
+		wall_sprite = spr_house_wall;
+		double_wall_sprite = spr_house_wall_double;
+		door_sprite = spr_house_d_open;
 		//bombable_sprite = spr_cave_d_cracked;
 	}
 	with(instance_create_layer(16+0, 16+0, "world_tiles", dung_wall)){sprite_index = corner_sprite; image_angle = 0; img_color = mapdata.get_color();}
@@ -658,6 +704,19 @@ function set_dungeon_walls(){
 	}
 }
 
+function get_cave_theme(){
+	var rm_dat = map_data[| mapx+mapy*maph];
+	var dest = rm_dat[? "destination"];
+	var keeper = dest[? "vendor"];
+	
+	if(keeper == "blacksmith" || keeper == "house" || keeper == "home"){
+		return "house";
+	}
+	else{
+		return "cave";
+	}
+}
+
 function remember_lock(door){
 	var other_angle = door.image_angle;//this stuff is to also unlock the door on the other side
 	var other_mapx = mapx;
@@ -737,6 +796,27 @@ function is_compass_found(){
 	return ind != -1;
 }
 
+function give(item){
+	var rm_dat = map_data[| mapx+mapy*maph];
+	var dest = rm_dat[? "destination"];
+	var keeper = dest[? "vendor"];
+	var inv = link.slef.inventory;
+	var valid = false;
+	
+	if(keeper == "blacksmith"){
+		switch(item){
+			case "ingot":
+				valid = true;
+				break;
+		}
+	}
+	
+	if(valid){
+		ds_list_delete(inv, ds_list_find_index(inv, "ingot"));
+		ds_list_add(given_items, [keeper, item]);
+	}
+}
+
 function draw_shop_text(){
 	draw_set_color(c_white);
 	draw_set_font(f_NES_small);
@@ -749,11 +829,15 @@ function draw_shop_text(){
 	var cost2 = dest[? "cost2"];
 	var cost3 = dest[? "cost3"];
 	
-	if(cost1 > 0)
+	var item1 = dest[? "item1"];
+	var item2 = dest[? "item2"];
+	var item3 = dest[? "item3"];
+	
+	if(cost1 > 0 && item1 != "none" && !hide_item[0])
 		draw_text(128-32, 64+32+8, string(cost1));
-	if(cost2 > 0)
+	if(cost2 > 0 && item2 != "none" && !hide_item[1])
 		draw_text(128, 64+32+8, string(cost2));
-	if(cost3 > 0)
+	if(cost3 > 0 && item3 != "none" && !hide_item[2])
 		draw_text(128+32, 64+32+8, string(cost3));
 }
 

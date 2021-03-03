@@ -37,7 +37,7 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 			no_clip = !no_clip
 		}
 		if(keyboard_check_pressed(ord("J"))){//debug button
-			sound_control.play_sound("hit");
+			request("collect", ["ingot"], 1, 0);
 		}
 		
 		var k_u = keyboard_check(ord("W")) || keyboard_check(vk_up);
@@ -444,6 +444,9 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 					c_mana = max_mana;
 				}
 			}
+		}
+		else if(args[0] == "ingot"){
+			mapdata.give("ingot");
 		}
 		else{
 			return;

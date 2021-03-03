@@ -1,29 +1,42 @@
 var pos = 12;
 if(locked){
 	if(!bombable){
-		sprite_index = spr_dung_d_locked;
+		sprite_index = locked_sprite;
 	}
 	else{
-		sprite_index = spr_dung_d_cracked;
+		sprite_index = cracked_sprite;
 	}
 	pos = 8;
 }
 else if(closed){
-	sprite_index = spr_dung_d_closed;
+	sprite_index = closed_sprite;
 	pos = 8;
 }
 else{
 	if(!bombable){
-		sprite_index = spr_dung_d_open;
+		sprite_index = open_sprite;
 	}
 	else{
-		sprite_index = spr_dung_d_bombed;
+		sprite_index = bombed_sprite;
 	}
 }
 
-if(mapdata.shop_mode || mapdata.bg_text == "cave"){
-	sprite_index = spr_cave_d_open;
+
+if(mapdata.get_cave_theme() == "cave" || mapdata.bg_text == "cave"){
+	open_sprite = spr_cave_d_open;
+	//cracked_sprite = spr_cave_d_cracked;
+	//bombed_sprite = spr_cave_d_bombed;
+	//locked_sprite = spr_cave_d_locked;
+	//closed_sprite = spr_cave_d_closed;
 }
+if(mapdata.get_cave_theme() == "house" || mapdata.bg_text == "house"){
+	open_sprite = spr_house_d_open;
+	//cracked_sprite = spr_house_d_cracked;
+	//bombed_sprite = spr_house_d_bombed;
+	//locked_sprite = spr_house_d_locked;
+	//closed_sprite = spr_house_d_closed;
+}
+
 
 if(bombable && locked && place_meeting(x, y, explosion)){
 	mapdata.remember_lock(self);
