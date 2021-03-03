@@ -449,24 +449,32 @@ function jump_load_ext(dest_x, dest_y, dest_file, is_local){
 		var item3 = dest[? "item3"];
 		var cost3 = dest[? "cost3"];
 		
-		var keeper_ob = instance_create_layer(128, 64 - 8, "Instances", wall);
+		var keeper_sprite = "none";
 		switch(keeper){
 			case "shopkeeper":
-				keeper_ob.sprite_index = spr_shopkeeper;
+				keeper_sprite = spr_shopkeeper;
 				break;
 			case "groad":
-				keeper_ob.sprite_index = spr_groad;
+				keeper_sprite = spr_groad;
 				break;
 			case "witch":
-				keeper_ob.sprite_index = spr_witch;
+				keeper_sprite = spr_witch;
 				break;
 			case "blacksmith":
-				keeper_ob.sprite_index = spr_blacksmith;
+				keeper_sprite = spr_blacksmith;
+				break;
+			case "town_shopkeeper":
+				keeper_sprite = spr_town_shopkeeper;
 				break;
 		}
+		if(keeper_sprite != "none"){
+			var keeper_ob = instance_create_layer(128, 64 - 8 + 16, "Instances", wall);
+			keeper_ob.sprite_index = keeper_sprite;
+		}
+		
 		if(get_cave_theme() == "cave"){
-			with(instance_create_layer(128 - 32, 64 - 8, "Instances", wall)){sprite_index = spr_blue_flame;}
-			with(instance_create_layer(128 + 32, 64 - 8, "Instances", wall)){sprite_index = spr_blue_flame;}
+			with(instance_create_layer(128 - 32, 64 - 8 + 16, "Instances", wall)){sprite_index = spr_blue_flame;}
+			with(instance_create_layer(128 + 32, 64 - 8 + 16, "Instances", wall)){sprite_index = spr_blue_flame;}
 		}
 		else if(get_cave_theme() == "house"){
 			layer_background_sprite(layer_background_get_id("Background"), spr_house_floor);
@@ -474,38 +482,21 @@ function jump_load_ext(dest_x, dest_y, dest_file, is_local){
 			with(instance_create_layer(48, 240-64, "Instances", bridge)){sprite_index = spr_stool;}
 		}
 		if(keeper == "blacksmith"){
-			/*var sw_ingot = false;
-			var rng_ingot = false;
 			hide_item = [true, true, true];
-			for(var i = 0; i < ds_list_size(given_items); i++){
-				var cur = given_items[| i];
-				show_message(cur[1]);
-				if(cur[0] == "blacksmith"){
-					if(cur[1] == "ingot"){
-						sw_ingot = true;
-						hide_item[0] = false;
-					}
-					if(cur[1] == "gold_ingot"){
-						rng_ingot = true;
-						hide_item[1] = false;
-					}
-				}
-			}*/
-			
 			if(item1 != "none")
-				with(instance_create_layer(128-32, 64+32 - 8, "Instances", shop_item)){item = item1; cost = cost1; order = 1; req = ["blacksmith", "ingot"]}
+				with(instance_create_layer(128-32, 64+32 - 8 + 16, "Instances", shop_item)){item = item1; cost = cost1; order = 1; req = ["blacksmith", "ingot"]}
 			if(item2 != "none")
-				with(instance_create_layer(128, 64+32 - 8, "Instances", shop_item)){item = item2; cost = cost2; order = 2; req = ["blacksmith", "gold_ingot"]}
+				with(instance_create_layer(128, 64+32 - 8 + 16, "Instances", shop_item)){item = item2; cost = cost2; order = 2; req = ["blacksmith", "gold_ingot"]}
 			if(item3 != "none")
-				with(instance_create_layer(128+32, 64+32 - 8, "Instances", shop_item)){item = item3; cost = cost3; order = 3;}
+				with(instance_create_layer(128+32, 64+32 - 8 + 16, "Instances", shop_item)){item = item3; cost = cost3; order = 3;}
 		}
 		else{
 			if(item1 != "none")
-				with(instance_create_layer(128-32, 64+32 - 8, "Instances", shop_item)){item = item1; cost = cost1; order = 1;}
+				with(instance_create_layer(128-32, 64+32 - 8 + 16, "Instances", shop_item)){item = item1; cost = cost1; order = 1;}
 			if(item2 != "none")
-				with(instance_create_layer(128, 64+32 - 8, "Instances", shop_item)){item = item2; cost = cost2; order = 2;}
+				with(instance_create_layer(128, 64+32 - 8 + 16, "Instances", shop_item)){item = item2; cost = cost2; order = 2;}
 			if(item3 != "none")
-				with(instance_create_layer(128+32, 64+32 - 8, "Instances", shop_item)){item = item3; cost = cost3; order = 3;}
+				with(instance_create_layer(128+32, 64+32 - 8 + 16, "Instances", shop_item)){item = item3; cost = cost3; order = 3;}
 		}
 		
 		shop_x = link.x;
@@ -705,11 +696,14 @@ function set_dungeon_walls(){
 }
 
 function get_cave_theme(){
+	if(is_dungeon){
+		return "none";
+	}
 	var rm_dat = map_data[| mapx+mapy*maph];
 	var dest = rm_dat[? "destination"];
 	var keeper = dest[? "vendor"];
 	
-	if(keeper == "blacksmith" || keeper == "house" || keeper == "home"){
+	if(keeper == "blacksmith" || keeper == "house" || keeper == "home" || keeper == "town_shopkeeper"){
 		return "house";
 	}
 	else{
@@ -834,11 +828,15 @@ function draw_shop_text(){
 	var item3 = dest[? "item3"];
 	
 	if(cost1 > 0 && item1 != "none" && !hide_item[0])
-		draw_text(128-32, 64+32+8, string(cost1));
+		draw_text(128-32, 64+32+8+16, string(cost1));
 	if(cost2 > 0 && item2 != "none" && !hide_item[1])
-		draw_text(128, 64+32+8, string(cost2));
+		draw_text(128, 64+32+8+16, string(cost2));
 	if(cost3 > 0 && item3 != "none" && !hide_item[2])
-		draw_text(128+32, 64+32+8, string(cost3));
+		draw_text(128+32, 64+32+8+16, string(cost3));
+		
+	if(ds_map_exists(dest, "text")){
+		draw_text(256/2, 40, dest[? "text"]);
+	}
 }
 
 function check_for_pause(){

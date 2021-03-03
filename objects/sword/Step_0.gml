@@ -4,7 +4,7 @@ if(!mapdata.paused){
 	if(life <= 0)
 		instance_destroy();
 
-	if(life <= 4){
+	if(life <= 3){
 		spd = t_sizeq;
 		mv_dir = point_direction(x, y, ob.x, ob.y);
 	}

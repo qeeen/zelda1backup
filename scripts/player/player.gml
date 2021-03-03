@@ -33,11 +33,28 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 	main_dir = "none";
 	
 	function input(){
-		if(keyboard_check_pressed(ord("H"))){//debug button
+		//DEBUG INPUTS
+		if(keyboard_check_pressed(ord("U"))){
 			no_clip = !no_clip
 		}
-		if(keyboard_check_pressed(ord("J"))){//debug button
-			request("collect", ["ingot"], 1, 0);
+		if(keyboard_check_pressed(ord("I"))){
+			request("collect", ["broken_sword"], 1, 0);
+		}
+		if(keyboard_check_pressed(ord("H"))){
+			mapdata.mapx -= 1;
+			mapdata.load_map();
+		}
+		if(keyboard_check_pressed(ord("J"))){
+			mapdata.mapy += 1;
+			mapdata.load_map();
+		}
+		if(keyboard_check_pressed(ord("K"))){
+			mapdata.mapy -= 1;
+			mapdata.load_map();
+		}
+		if(keyboard_check_pressed(ord("L"))){
+			mapdata.mapx += 1;
+			mapdata.load_map();
 		}
 		
 		var k_u = keyboard_check(ord("W")) || keyboard_check(vk_up);
@@ -336,6 +353,24 @@ function player(_ob, _x, _y) : living(_ob, _x, _y) constructor{
 		if(args[0] == "white_sword"){
 			with(instance_create_layer(ob.x + t_size*atk_x*axis, ob.y + t_size*atk_y*(!axis), "Instances", sword)){
 				image_angle = !other.axis*90;
+				
+				if(other.dir == 1 || other.dir == 2){
+					image_xscale = -1;
+				}
+				if(other.dir == 1){
+					image_yscale = -1;
+				}
+				
+				life = other.atk_dur;
+				ob = other.ob;
+				sound_control.play_sound("sword");
+			}
+		}
+		else if(args[0] == "broken_sword"){
+			with(instance_create_layer(ob.x + t_size*atk_x*axis, ob.y + t_size*atk_y*(!axis), "Instances", sword)){
+				image_angle = !other.axis*90;
+				sprite_index = spr_broken_blade;
+				dmg = 4;
 				
 				if(other.dir == 1 || other.dir == 2){
 					image_xscale = -1;
